@@ -61,5 +61,11 @@ RSpec.describe Product, type: :model do
       expect(product.valid?).to be false
       expect(product.errors.full_messages).to include("Category can't be blank")
     end
+    it("There are products on the page", () => {
+  cy.get(".products article").should("be.visible");
+});
+it("There is 2 products on the page", () => {
+  cy.get(".products article").should("have.length", 2);
+});
   end
 end
